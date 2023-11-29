@@ -1,0 +1,9 @@
+.home-ban {
+  height: 50vh;
+}
+.h1-wod {
+  text-shadow: 1px 1px 2px red, 0 0 1em black, 0 0 0.2em black;
+}
+.p-wod {
+  text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
+}

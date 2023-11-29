@@ -1,0 +1,9 @@
+.home {
+  height: 50vh;
+}
+.ban-text {
+  text-shadow: 1px 1px 2px red, 0 0 1em black, 0 0 0.2em black;
+}
+.p-ban {
+  text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
+}
