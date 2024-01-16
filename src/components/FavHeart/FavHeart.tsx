@@ -7,9 +7,7 @@ import { actionAddFav, actionDeleteFav } from "../../store/thunk/thunk";
 export const FavHeart = ({ id }: { id: number | null }) => {
   const dispatch = useDispatch() as AppDispatch;
   const [isButtonOn, setIsButtonOn] = useState(false);
-  const likedWods = useSelector(
-    (state: RootState) => state.userReducer.userFav
-  );
+  const likedWods = useSelector((state: RootState) => state.userReducer.userFav);
 
   useEffect(() => {
     setIsButtonOn(likedWods.includes(id));

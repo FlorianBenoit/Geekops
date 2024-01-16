@@ -72,9 +72,7 @@ const Wod = () => {
     }
   };
 
-  const handleChangeComment = (
-    event: React.ChangeEvent<HTMLTextAreaElement>
-  ) => {
+  const handleChangeComment = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setWodComment(event.target.value);
   };
 
@@ -104,11 +102,7 @@ const Wod = () => {
       <WodBanner title={wodName} desc={wodDesc} />
       <div className='flex flex-col md:flex-row '>
         {wods.length !== 0 && (
-          <WodDesc
-            exercices={exercices}
-            wodId={userId}
-            repetition={repetition}
-          />
+          <WodDesc exercices={exercices} wodId={userId} repetition={repetition} />
         )}
         <div className='w-full flex flex-col md:w-2/5'>
           <WodTimer />

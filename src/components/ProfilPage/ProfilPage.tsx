@@ -17,9 +17,7 @@ interface IJwtPayload {
 function ProfilPage() {
   // const [showPassword, setShowPassword] = useState(false);
 
-  const isUnlogged = useSelector(
-    (state: RootState) => state.userReducer.isUnlogged
-  );
+  const isUnlogged = useSelector((state: RootState) => state.userReducer.isUnlogged);
 
   const dispatch = useDispatch() as AppDispatch;
   const token = useSelector((state: RootState) => state.userReducer.token);
@@ -31,21 +29,13 @@ function ProfilPage() {
     userRoles = decodedToken.roles;
   }
   const email = useSelector((state: RootState) => state.userReducer.userEmail);
-  const username = useSelector(
-    (state: RootState) => state.userReducer.userName
-  );
-  const isLoading = useSelector(
-    (state: RootState) => state.userReducer.isLoading
-  );
+  const username = useSelector((state: RootState) => state.userReducer.userName);
+  const isLoading = useSelector((state: RootState) => state.userReducer.isLoading);
   const wods = useSelector((state: RootState) => state.wodsReducer.wods);
   const wodsFav = useSelector((state: RootState) => state.userReducer.userFav);
-  const wodsCreated = useSelector(
-    (state: RootState) => state.userReducer.wodsCreatedByUser
-  );
+  const wodsCreated = useSelector((state: RootState) => state.userReducer.wodsCreatedByUser);
   const userFav = wods.filter((val) => wodsFav.includes(val.id));
-  const wodsCreatedToDisplay = wods.filter((val) =>
-    wodsCreated.includes(val.id)
-  );
+  const wodsCreatedToDisplay = wods.filter((val) => wodsCreated.includes(val.id));
   // useEffect(() => {
   //   if (!isEditable) {
   //     setShowPassword(false);
@@ -179,9 +169,7 @@ function ProfilPage() {
         </button>
         {userRoles.includes("ROLE_ADMIN") && (
           <button className='bg-orange-700 text-white px-2 py-2  md:px-4 md:py-2 rounded-lg'>
-            <a
-              href='http://vivosjerome-server.eddi.cloud/public/'
-              target='blank'>
+            <a href='http://127.0.0.1:8080' target='blank'>
               Administration
             </a>
           </button>
@@ -193,14 +181,12 @@ function ProfilPage() {
       <div className='w-full border-t-2 mb-6'>
         <h3 className='text-3xl my-6 text-black mb-0'>Vos Wod's favoris !</h3>
         <p className='text-black italic px-4'>
-          Retrouvez ici vos Wod's préférés pour retrailler quand vous voulez vos
-          exercices !
+          Retrouvez ici vos Wod's préférés pour retrailler quand vous voulez vos exercices !
         </p>
         {userFav.length === 0 && (
           <div className='flex flex-col items-center'>
             <p className='text-black px-4 mb-12'>
-              Ajoutez des wods en favoris et retrouvez-les ici dans votre espace
-              personnel !
+              Ajoutez des wods en favoris et retrouvez-les ici dans votre espace personnel !
             </p>
             <img src='/coeur.png' alt='' className='w-48 ' />
           </div>
@@ -211,8 +197,8 @@ function ProfilPage() {
       <div className='w-full border-t-2'>
         <h3 className='text-3xl my-6 text-black mb-0'>Vos Wod's créés</h3>
         <p className='text-black italic px-4 mb-6'>
-          Vos Wod's créés sont référencés ici. Suivez leur validation avant
-          qu'ils soient proposés à toute la communauté !
+          Vos Wod's créés sont référencés ici. Suivez leur validation avant qu'ils soient proposés à
+          toute la communauté !
         </p>
         <div className='flex flex-col items-center'>
           {wodsCreated.length === 0 && (
