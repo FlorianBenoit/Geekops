@@ -5,7 +5,6 @@
 .filter-button {
   --c: orange;
   border: 2px solid orange;
-  color: black;
   width: 12em;
   height: 3em;
   text-align: center;

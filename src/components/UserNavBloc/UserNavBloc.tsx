@@ -9,15 +9,11 @@ import { actionGetUser } from "../../store/thunk/thunk";
 
 const UserNavBloc = () => {
   const dispatch = useDispatch() as AppDispatch;
-  const username = useSelector(
-    (state: RootState) => state.userReducer.userName
-  );
+  const username = useSelector((state: RootState) => state.userReducer.userName);
 
   const token = useSelector((state: RootState) => state.userReducer.token);
   const userFav = useSelector((state: RootState) => state.userReducer.userFav);
-  const isLogged = useSelector(
-    (state: RootState) => state.userReducer.isLogged
-  );
+  const isLogged = useSelector((state: RootState) => state.userReducer.isLogged);
   const userId = useSelector((state: RootState) => state.userReducer.userId);
   const userInformation = {
     token,
@@ -46,8 +42,8 @@ const UserNavBloc = () => {
 
   return (
     <Link to='/profil'>
-      <div className='flex items-center gap-2 '>
-        <span className='font-hilogin'>{username}</span>
+      <div className='flex items-center mr-4 gap-2 '>
+        <span className=''>{username}</span>
         <GiMuscleUp />
       </div>
     </Link>

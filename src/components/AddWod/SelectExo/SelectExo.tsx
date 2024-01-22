@@ -9,17 +9,9 @@ import {
   actionSetUnityValue,
 } from "../../../store/actions/wodsReducer";
 
-const SelectExo = ({
-  del,
-  id,
-}: {
-  del: (id: number | null) => void;
-  id: number | null;
-}) => {
+const SelectExo = ({ del, id }: { del: (id: number | null) => void; id: number | null }) => {
   const dispatch = useDispatch() as AppDispatch;
-  const exercices = useSelector(
-    (state: RootState) => state.wodsReducer.activities
-  );
+  const exercices = useSelector((state: RootState) => state.wodsReducer.activities);
   const wodExo = useSelector((state: RootState) => state.wodsReducer.wodExo);
   let wodExoValue: number | undefined = undefined;
   const foundExoValue = wodExo.find((ele) => ele.id === id);
@@ -39,9 +31,7 @@ const SelectExo = ({
     wodExoUnity = foundExoUnity.unity as number;
   }
 
-  const repetitions = useSelector(
-    (state: RootState) => state.wodsReducer.repetitions
-  );
+  const repetitions = useSelector((state: RootState) => state.wodsReducer.repetitions);
 
   let initialName: number | undefined = undefined;
   let initialRep: number | undefined = undefined;
@@ -76,7 +66,7 @@ const SelectExo = ({
         value={wodExoValue}
         onChange={(event) => handleChangeName(event)}
         id='exo'
-        className=' border p-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'>
+        className=' border p-2 bg-black py-1.5 pl-1 text-white placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'>
         {exercices &&
           exercices.map((exo) => (
             <option key={exo.id} value={exo.id}>
@@ -88,7 +78,7 @@ const SelectExo = ({
         value={wodExoRep}
         onChange={(event) => handleChangeRep(event)}
         id='reps'
-        className=' border p-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'>
+        className=' border p-2 bg-black py-1.5 pl-1 text-white placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'>
         {repetitions &&
           repetitions.map((rep) => (
             <option key={rep.id} value={rep.id}>
@@ -100,13 +90,13 @@ const SelectExo = ({
         value={wodExoUnity}
         onChange={(event) => handleChangeUnity(event)}
         id='unity'
-        className=' border p-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'>
+        className=' border p-2 bg-black py-1.5 pl-1 text-white placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'>
         <option value={1}>répétitions</option>
         <option value={2}>secondes</option>
       </select>
       <span
         onClick={() => del(id)}
-        className='text-gray-900 text-sm hover:cursor-pointer hover:underline'>
+        className='text-white text-sm hover:cursor-pointer hover:underline'>
         supprimer
       </span>
     </div>

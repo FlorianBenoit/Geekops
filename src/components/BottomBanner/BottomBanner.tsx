@@ -8,7 +8,7 @@ export function BottomBanner() {
   const isLogged = useSelector((state: RootState) => state.userReducer.isLogged);
 
   return (
-    <div className='bg-white text-black border-y-2 border-amber-500 text-center py-8 bottom-0 w-full'>
+    <div className=' border-y-2 border-amber-500 text-center py-8 bottom-0 w-full'>
       <div className='p-2 mx-auto flex flex-col items-center'>
         <p className='max-w-2xl text-center'>
           Libérez votre créativité sportive en façonnant le WOD de vos rêves, sur mesure pour
@@ -18,7 +18,7 @@ export function BottomBanner() {
         {!isLogged && (
           <button
             onClick={() => dispatch(actionSetConnexionIsClicked())}
-            className='bg-amber-500 text-black px-4 py-2 rounded-lg mt-4'>
+            className='bg-amber-500  px-4 py-2 rounded-lg mt-4'>
             Connectez-Vous
           </button>
         )}

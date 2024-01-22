@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import Error from "../Error/Error";
 import "./Banner.css";
 import { RootState } from "../../store/store";
+import { useRef } from "react";
 
 type BannerProps = {
   title: string;
@@ -10,18 +11,29 @@ type BannerProps = {
 
 export function Banner({ title, subtitle }: BannerProps) {
   const isError = useSelector((state: RootState) => state.wodsReducer.isError);
+  const ref = useRef(null);
+
+  const handleClick = () => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <>
       {isError && <Error />}
       <div
-        className='home bg-cover h-screen-1/2 text-black flex flex-col justify-center p-6'
+        className='home bg-cover bg-center justify-between items-center text-black flex flex-col p-6'
         style={{
-          backgroundImage: "url('/_8a9fee81-b0e9-4433-ac4b-f4603f2cd462.jpg')",
+          backgroundImage:
+            "url('/close-up-portrait-afro-american-sports-man-with-beautiful-muscular-body-doing-pushup-exercise-floor.jpg')",
         }}>
-        <h1 className='ban-text text-2xl content-center md:text-4xl font-hilogin text-amber-500 mb-4'>
-          {title}
-        </h1>
-        <p className='p-ban text-white'>{subtitle}</p>
+        <div className='duo flex flex-col mt-64'>
+          <h1 className='ban-text text-2xl content-center md:text-4xl text-amber-500 mb-4'>
+            {title}
+          </h1>
+          <p className='p-ban text-2xl text-white'>{subtitle}</p>
+        </div>
+        <button onClick={handleClick} className='arrow'>
+          <div ref={ref} className='arrow-up'></div>
+        </button>
       </div>
     </>
   );

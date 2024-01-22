@@ -27,10 +27,10 @@ const Inscription = () => {
   };
 
   return (
-    <div className='md:w-1/5 h-fit bg-white text-center p-3 flex flex-col w-full absolute z-10'>
+    <div className='md:w-1/5 h-fit bg-black border-white rounded-sm border-2 text-center p-3 flex flex-col w-full absolute z-10'>
       <form onSubmit={(event) => handleSubmit(event)} action='#' className='flex flex-col'>
-        <p className='text-black'>Inscription</p>
-        <label htmlFor='pseudo' className='text-black mb-2'></label>
+        <p className='text-white'>Inscription</p>
+        <label htmlFor='pseudo' className='text-white mb-2'></label>
         <input
           className='my-6 p-2 text-white'
           type='text'
@@ -68,7 +68,7 @@ const Inscription = () => {
         />
         <p className='text-black mb-2'>Valider vos informations :</p>
         <button
-          className='mb-2 bg-sky-400 px-3 py-1 rounded-lg hover:bg-sky-500 text-black'
+          className='mb-2 bg-sky-400 px-3 py-1 rounded-lg hover:bg-amber-500 text-black'
           type='submit'>
           Valider
         </button>

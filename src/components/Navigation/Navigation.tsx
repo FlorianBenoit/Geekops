@@ -36,16 +36,19 @@ const Navigation = () => {
 
   return (
     <>
-      <div className='nav px-2 w-full text-amber-500 font-bold text-xl overflow-hidden'>
+      <div className='nav px-2 w-full text-amber-500 font-bold overflow-hidden'>
         <nav>
-          <ul className='flex justify-between items-center'>
-            <li>
-              {" "}
-              <NavLink to='/'>
-                <img src='/logo.png' alt='' className='w-24 md:w-24' />
-              </NavLink>
-            </li>
-            <div className='md:flex hidden gap-x-16 bg-transparent backdrop-blur-md rounded-3xl px-4 hover:cursor-pointer'>
+          <ul className='flex h-20 justify-between items-center'>
+            <div className='md:flex hidden gap-x-16 bg-transparent rounded-3xl px-4 hover:cursor-pointer'>
+              <li>
+                <NavLink
+                  className={({ isActive }) =>
+                    !isActive ? "hover:text-red-600 link" : "text-red-600 link"
+                  }
+                  to='/'>
+                  Acceuil
+                </NavLink>
+              </li>
               <li>
                 <NavLink
                   className={({ isActive }) =>

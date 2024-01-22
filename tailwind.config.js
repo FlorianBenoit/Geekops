@@ -5,7 +5,11 @@ export default {
     fontFamily: {
       hilogin: ["HILOGINREG"],
     },
-    extend: {},
+    extend: {
+      height: {
+        "50vh": "50vh",
+      },
+    },
+    plugins: [],
   },
-  plugins: [],
 };

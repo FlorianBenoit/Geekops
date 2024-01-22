@@ -1,3 +1,21 @@
-.conainer-wod {
-  box-shadow: 2px 2px 15px -5px #000000;
+.wod-card {
+  transition: 0.2s;
+}
+.wod-card:hover {
+  transform: scale(1.2);
+}
+.full-body-bg {
+  background-image: url(/var/www/html/Projet/Geekops/Front/Geekops/public/full-body-photo-afro-american-running-man.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.upper-body-bg {
+  background-image: url(/var/www/html/Projet/Geekops/Front/Geekops/public/athlete-runner-prepare-run-from-crouch-start.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.lower-body-bg {
+  background-image: url(/var/www/html/Projet/Geekops/Front/Geekops/public/full-shot-fit-woman-training-indoors.jpg);
+  background-position: center;
+  background-size: cover;
 }

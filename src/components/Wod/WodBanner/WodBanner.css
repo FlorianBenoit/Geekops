@@ -1,5 +1,6 @@
 .home-ban {
   height: 50vh;
+  background-image: url(/var/www/html/Projet/Geekops/Front/Geekops/public/gym.jpg);
 }
 .h1-wod {
   text-shadow: 1px 1px 2px red, 0 0 1em black, 0 0 0.2em black;

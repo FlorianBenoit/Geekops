@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className='footer w-full flex justify-between items-center bg-white text-black p-4 '>
+    <footer className='footer w-full flex justify-between items-center p-4 '>
       <p className='m-0'>Geek Ops - 2023</p>
       <ul className='flex gap-x-4'>
         <li className='hover:cursor-pointer'>

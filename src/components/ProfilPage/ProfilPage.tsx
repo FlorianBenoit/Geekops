@@ -95,8 +95,8 @@ function ProfilPage() {
   // };
 
   return (
-    <div className='min-h-screen flex flex-col items-center bg-white border-t'>
-      <h1 className='text-3xl my-6 text-black'>Bonjour {username} !</h1>
+    <div className='min-h-screen flex flex-col items-center bg-black border-t'>
+      <h1 className='text-3xl my-6 text-white'>Bonjour {username} !</h1>
       <div className='flex flex-col gap-2 rounded-lg p-3 mb-6'>
         {/* <div className='mb-2 w-32 h-32 mx-auto relative'>
           {imageModifiable ? (
@@ -178,13 +178,13 @@ function ProfilPage() {
         {isUnlogged && <Navigate to='/' replace={true} />}
       </div>
       {isLoading && <Loader />}
-      <div className='w-full border-t-2 mb-6'>
-        <h3 className='text-3xl my-6 text-black mb-0'>Vos Wod's favoris !</h3>
-        <p className='text-black italic px-4'>
+      <div className='w-full border-t-2 text-white mb-6'>
+        <h3 className='text-3xl my-6 text-amber-500 mb-0'>Vos Wod's favoris !</h3>
+        <p className=' italic px-4'>
           Retrouvez ici vos Wod's préférés pour retrailler quand vous voulez vos exercices !
         </p>
         {userFav.length === 0 && (
-          <div className='flex flex-col items-center'>
+          <div className='flex flex-col mt-8 items-center'>
             <p className='text-black px-4 mb-12'>
               Ajoutez des wods en favoris et retrouvez-les ici dans votre espace personnel !
             </p>
@@ -194,26 +194,24 @@ function ProfilPage() {
         <WodCard displayHearth={true} wods={userFav} />
       </div>
 
-      <div className='w-full border-t-2'>
-        <h3 className='text-3xl my-6 text-black mb-0'>Vos Wod's créés</h3>
-        <p className='text-black italic px-4 mb-6'>
+      <div className='w-full border-t-2 mt-8 text-white'>
+        <h3 className='text-3xl my-6 mb-0'>Vos Wod's créés</h3>
+        <p className='italic px-4 mb-6'>
           Vos Wod's créés sont référencés ici. Suivez leur validation avant qu'ils soient proposés à
           toute la communauté !
         </p>
         <div className='flex flex-col items-center'>
           {wodsCreated.length === 0 && (
             <>
-              <p className='text-black px-4 mb-12'>
-                Créez vos Wod's personnalisés et retrouvez les ici !
-              </p>
+              <p className='px-4 mb-12'>Créez vos Wod's personnalisés et retrouvez les ici !</p>
               <img src='/rocket.png' alt='' className='w-56 ' />
             </>
           )}
           {wodsCreated.length !== 0 && (
             // <WodCard displayHearth={false} wods={wodsCreatedToDisplay} />
             <div className='overflow-x-auto w-full md:w-auto'>
-              <table className='table-fixed text-black border'>
-                <thead className='bg-orange-200'>
+              <table className='table-fixed border'>
+                <thead className='bg-amber-500'>
                   <tr>
                     <th className='p-2'>Nom</th>
                     <th>Description</th>
