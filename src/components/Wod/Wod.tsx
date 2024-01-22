@@ -1,4 +1,6 @@
 import { useParams } from "react-router-dom";
+import "./Wod.css";
+import Fade from "react-reveal/Fade";
 import WodBanner from "./WodBanner/WodBanner";
 import WodDesc from "./WodDesc/WodDesc";
 import WodHistory from "./WodHistory/WodHistory";
@@ -98,25 +100,27 @@ const Wod = () => {
   }, []);
 
   return (
-    <div className='bg-white text-black'>
+    <div className='bg-black text-white'>
       <WodBanner title={wodName} desc={wodDesc} />
-      <div className='flex flex-col md:flex-row '>
+      <div className='desc flex flex-col h-auto md:flex-row '>
         {wods.length !== 0 && (
           <WodDesc exercices={exercices} wodId={userId} repetition={repetition} />
         )}
-        <div className='w-full flex flex-col md:w-2/5'>
-          <WodTimer />
-          <WodPersonnalDetails
-            rounds={rounds}
-            handleClickMinus={handleClickMinus}
-            handleClickPlus={handleClickPlus}
-            wodTime={wodTime}
-            handleChangeTime={handleChangeTime}
-            wodComment={wodComment}
-            handleChangeComment={handleChangeComment}
-            handleSubmit={handleSubmit}
-          />
-        </div>
+        <Fade right>
+          <div className='w-full flex flex-col md:w-2/5'>
+            <WodTimer />
+            <WodPersonnalDetails
+              rounds={rounds}
+              handleClickMinus={handleClickMinus}
+              handleClickPlus={handleClickPlus}
+              wodTime={wodTime}
+              handleChangeTime={handleChangeTime}
+              wodComment={wodComment}
+              handleChangeComment={handleChangeComment}
+              handleSubmit={handleSubmit}
+            />
+          </div>
+        </Fade>
       </div>
       <WodHistory historic={historic} />
       <WodSocialBlock comments={comments} />

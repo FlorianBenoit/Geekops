@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./AddWod.css";
 import SelectExo from "./SelectExo/SelectExo";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../store/store";
@@ -27,9 +28,7 @@ const AddWod = () => {
   const [hasASubTitle, setHasASubTitle] = useState(true);
   const dispatch = useDispatch() as AppDispatch;
   let defaultCat: number | undefined = undefined;
-  const categories = useSelector(
-    (state: RootState) => state.wodsReducer.categories
-  );
+  const categories = useSelector((state: RootState) => state.wodsReducer.categories);
   if (categories.length !== 0) {
     defaultCat = categories[0].id;
   }
@@ -39,45 +38,25 @@ const AddWod = () => {
     defaultType = types[0].id;
   }
   let defaultRep: number | undefined = undefined;
-  const wodsRepetition = useSelector(
-    (state: RootState) => state.wodsReducer.wodRepetitions
-  );
+  const wodsRepetition = useSelector((state: RootState) => state.wodsReducer.wodRepetitions);
   if (wodsRepetition.length !== 0) {
     defaultRep = wodsRepetition[0].id;
   }
   const wodExo = useSelector((state: RootState) => state.wodsReducer.wodExo);
-  const repWodValue = useSelector(
-    (state: RootState) => state.wodsReducer.inputWodRepValue
-  );
-  const initialName = useSelector(
-    (state: RootState) => state.wodsReducer.initalNameExo
-  );
-  const initialRep = useSelector(
-    (state: RootState) => state.wodsReducer.initialRepExo
-  );
-  const initialUnity = useSelector(
-    (state: RootState) => state.wodsReducer.inputUnity
-  );
-  const typeValue = useSelector(
-    (state: RootState) => state.wodsReducer.inputSelectTypeValue
-  );
-  const catValue = useSelector(
-    (state: RootState) => state.wodsReducer.inputSelectCatValue
-  );
-  const wodIsSent = useSelector(
-    (state: RootState) => state.wodsReducer.wodIsSent
-  );
+  const repWodValue = useSelector((state: RootState) => state.wodsReducer.inputWodRepValue);
+  const initialName = useSelector((state: RootState) => state.wodsReducer.initalNameExo);
+  const initialRep = useSelector((state: RootState) => state.wodsReducer.initialRepExo);
+  const initialUnity = useSelector((state: RootState) => state.wodsReducer.inputUnity);
+  const typeValue = useSelector((state: RootState) => state.wodsReducer.inputSelectTypeValue);
+  const catValue = useSelector((state: RootState) => state.wodsReducer.inputSelectCatValue);
+  const wodIsSent = useSelector((state: RootState) => state.wodsReducer.wodIsSent);
   const [elementCount, setElementCount] = useState(0);
   const [elementId, setElementId] = useState(1);
 
   const wodName = useSelector((state: RootState) => state.wodsReducer.wodName);
-  const wodSubtitle = useSelector(
-    (state: RootState) => state.wodsReducer.wodSubtitle
-  );
+  const wodSubtitle = useSelector((state: RootState) => state.wodsReducer.wodSubtitle);
 
-  const isLogged = useSelector(
-    (state: RootState) => state.userReducer.isLogged
-  );
+  const isLogged = useSelector((state: RootState) => state.userReducer.isLogged);
 
   const addElement = () => {
     if (elementCount <= 4) {
@@ -164,38 +143,26 @@ const AddWod = () => {
     <>
       {isLogged && (
         <>
-          {wodIsSent && (
-            <Infobox content='Le wod a été soumis aux administrateurs. ' />
-          )}
+          {wodIsSent && <Infobox content='Le wod a été soumis aux administrateurs. ' />}
           {!hasAtLeastOneEx && (
-            <p className='bg-red-400 p-2'>
-              Veuillez ajouter au moins 1 exercice à votre wod.
-            </p>
+            <p className='bg-red-400 p-2'>Veuillez ajouter au moins 1 exercice à votre wod.</p>
           )}
-          {!hasATitle && (
-            <p className='bg-red-400 p-2'>Veuillez ajouter un titre au wod.</p>
-          )}
+          {!hasATitle && <p className='bg-red-400 p-2'>Veuillez ajouter un titre au wod.</p>}
           {!hasASubTitle && (
-            <p className='bg-red-400 p-2'>
-              Veuillez ajouter un sous-titre au wod.
-            </p>
+            <p className='bg-red-400 p-2'>Veuillez ajouter un sous-titre au wod.</p>
           )}
-          <div className='bg-white flex items-center p-4'>
+          <div className=' flex justify-center mb-4 items-center p-4'>
             <form
               onSubmit={handleSubmit}
-              className='w-full flex flex-wrap gap-4 justify-start'
+              className='flex flex-col w-4/6 gap-6 justify-center items-center'
               action='#'>
-              <fieldset className='border flex flex-col items-start p-4 mb-4 w-1/3 '>
-                <legend className='text-black rounded-sm bg-amber-500 px-2 py-1 text-base'>
+              <fieldset className='border-b w-full flex flex-col items-center p-4 pb-10'>
+                <legend className='text-white rounded-md bg-amber-500 px-2 py-1 text-base'>
                   {" "}
                   1 - Donne un nom à ton Wod !
                 </legend>
-                <p className='mt-1 text-sm leading-6 text-gray-600 mb-2'>
-                  Le nom doit respecter les conditions d'utilisation du site.
-                </p>
-                <label
-                  htmlFor='name'
-                  className='block text-base font-medium leading-6 text-gray-900'>
+
+                <label htmlFor='name' className='block text-base font-medium leading-6 text-white'>
                   Nom du Wod :
                 </label>
                 <input
@@ -205,12 +172,10 @@ const AddWod = () => {
                     dispatch(actionSetWodNameInput(event.target.value));
                   }}
                   id='name'
-                  className=' border p-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 mb-4'
+                  className=' border p-2 bg-transparent py-1.5 pl-1 text-white placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 mb-4'
                   placeholder='Nom du wod'
                 />
-                <label
-                  htmlFor='name'
-                  className='block text-base font-medium leading-6 text-gray-900'>
+                <label htmlFor='name' className='block text-base font-medium leading-6 text-white'>
                   Sous-titre du Wod :
                 </label>
                 <input
@@ -220,21 +185,22 @@ const AddWod = () => {
                   onChange={(event) => {
                     dispatch(actionSetWodSubtitleInput(event.target.value));
                   }}
-                  className=' border p-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'
+                  className=' border p-2 bg-transparent py-1.5 pl-1 text-white placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'
                   placeholder='Sous-titre du wod'
                 />
+                <p className='text-sm leading-6 mt-4 text-white mb-2'>
+                  (Le nom et le sous-titre doivent respecter les conditions d'utilisation du site.)
+                </p>
               </fieldset>
-              <fieldset className='border flex flex-col items-start p-4 gap-2 mb-4'>
-                <legend className='text-black rounded-sm bg-amber-500  px-2 py-1 text-base'>
+              <fieldset className='border-b w-full flex flex-col items-center p-4 gap-2 pb-10'>
+                <legend className='text-white rounded-md bg-amber-500  px-2 py-1 text-base'>
                   {" "}
                   2 - Sélectionne les exercices !
                 </legend>
-                <p className='mt-1 text-sm leading-6 text-gray-600'>
+                <p className='mt-1 text-sm leading-6 text-white'>
                   Un Wod doit être composé de 1 à 4 exercices maximum.
                 </p>
-                <label
-                  htmlFor='exo'
-                  className='block text-base font-medium leading-6 text-gray-900'>
+                <label htmlFor='exo' className='block text-base font-medium leading-6 text-white'>
                   Sélectionne un exercice :
                 </label>
                 {wodExo.map((ele) => (
@@ -244,22 +210,20 @@ const AddWod = () => {
                   <button
                     onClick={() => addElement()}
                     type='button'
-                    className='rounded-md bg-white px-2.5 py-1.5 text-base text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50'>
+                    className='rounded-md bg-white px-2.5 py-1.5 text-base text-black shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50'>
                     Ajoute un exercice
                   </button>
                 )}
               </fieldset>
-              <fieldset className='border flex flex-col items-start p-4 gap-2 mb-4 '>
-                <legend className='text-black rounded-sm bg-amber-500  px-2 py-1 text-base'>
+              <fieldset className='border-b w-full flex flex-col items-center p-4 gap-2 pb-10 '>
+                <legend className='text-white rounded-md bg-amber-500  px-2 py-1 text-base'>
                   {" "}
                   3 - Sélectionnez le type et la catégorie !
                 </legend>
-                <p className='mt-1 text-sm leading-6 text-gray-600 mb-2'>
-                  HIIT / Tabata
-                </p>
+                {/* <p className='mt-1 text-sm leading-6 text-white'>HIIT / Tabata</p> */}
                 <label
                   htmlFor='repWod'
-                  className='block text-base font-medium leading-6 text-gray-900'>
+                  className='block text-base font-medium leading-6 text-white'>
                   Sélectionne le type de Wod :
                 </label>
                 <div className='flex items-center gap-x-2'>
@@ -267,7 +231,7 @@ const AddWod = () => {
                     value={typeValue !== null ? typeValue : undefined}
                     onChange={(event) => handleChangeType(event)}
                     id='repWod'
-                    className=' border p-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'>
+                    className=' border p-2 bg-black py-1.5 pl-1 text-white placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'>
                     {types &&
                       types.map((type) => (
                         <option key={type.id} value={type.id}>
@@ -278,7 +242,7 @@ const AddWod = () => {
                 </div>
                 <label
                   htmlFor='repWod'
-                  className='block text-base font-medium leading-6 text-gray-900'>
+                  className='block w-f text-base font-medium leading-6 text-white'>
                   Sélectionne la catégorie du wod :
                 </label>
                 <div className='flex items-center gap-x-2'>
@@ -286,7 +250,7 @@ const AddWod = () => {
                     onChange={(event) => handleChangeCat(event)}
                     value={catValue !== null ? catValue : undefined}
                     id='repWod'
-                    className=' border p-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'>
+                    className=' border p-2 bg-black py-1.5 pl-1 text-white placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'>
                     {categories &&
                       categories.map((categorie) => (
                         <option key={categorie.id} value={categorie.id}>
@@ -296,17 +260,17 @@ const AddWod = () => {
                   </select>
                 </div>
               </fieldset>
-              <fieldset className='border flex flex-col items-start p-4 gap-2 mb-4'>
-                <legend className='text-black rounded-sm bg-amber-500  px-2 py-1 text-base'>
+              <fieldset className='border-b w-full flex flex-col items-center p-4 pb-10 gap-2'>
+                <legend className='text-white rounded-md bg-amber-500  px-2 py-1 text-base'>
                   {" "}
                   4 - Sélectionne le nombre de répétitions !
                 </legend>
-                <p className='mt-1 text-sm leading-6 text-gray-600 mb-2'>
-                  Le nombre maximale de répétitions pour un wod est de 4000.
+                <p className='mt-1 text-sm leading-6 text-white mb-2'>
+                  Le nombre maximale de répétitions pour un wod est de 10.
                 </p>
                 <label
                   htmlFor='repWod'
-                  className='block text-base font-medium leading-6 text-gray-900'>
+                  className='block text-base font-medium leading-6 text-white'>
                   Sélectionne le nombre de répétitions :
                 </label>
                 <div className='flex items-center gap-x-2'>
@@ -314,7 +278,7 @@ const AddWod = () => {
                     value={repWodValue}
                     onChange={(event) => handleChangeWodRep(event)}
                     id='repWod'
-                    className=' border p-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'>
+                    className=' border p-2 bg-black py-1.5 pl-1 text-white placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'>
                     {wodsRepetition &&
                       wodsRepetition.map((wodRep) => (
                         <option key={wodRep.id} value={wodRep.id}>
@@ -322,7 +286,7 @@ const AddWod = () => {
                         </option>
                       ))}
                   </select>
-                  <p className='text-gray-900 text-sm'>répétition(s)</p>
+                  <p className='text-white text-sm'>répétition(s)</p>
                 </div>
               </fieldset>
 
@@ -340,9 +304,7 @@ const AddWod = () => {
         accept='image/png, image/jpeg'
       />
     </fieldset> */}
-              <button
-                type='submit'
-                className='text-black bg-amber-500 hover:bg-amber-700 rounded p-6 self-center'>
+              <button type='submit' className='button-78'>
                 Crée ton Wod !
               </button>
             </form>

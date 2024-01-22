@@ -25,11 +25,11 @@ export function HomeCarousel() {
   return (
     <>
       {isLoaded && (
-        <div className='carousel'>
+        <div className='carousel flex items-center justify-center'>
           <div className='relative'>
             <div
-              className='carousel-item '
-              style={{ display: currentSlide === 0 ? "block" : "none" }}>
+              className='carousel-item flex flex-col items-center'
+              style={{ display: currentSlide === 0 ? "flex" : "none" }}>
               <HomeCard wod={wods[0]} prevSlide={prevSlide} nextSlide={nextSlide} />
             </div>
             <div

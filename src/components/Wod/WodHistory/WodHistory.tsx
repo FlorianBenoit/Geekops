@@ -4,9 +4,7 @@ import { Ihistoric } from "../../../@types/wods";
 import "./WodHistory.css";
 
 const WodHistory = ({ historic }: { historic: Ihistoric[] }) => {
-  const isLogged = useSelector(
-    (state: RootState) => state.userReducer.isLogged
-  );
+  const isLogged = useSelector((state: RootState) => state.userReducer.isLogged);
 
   return (
     <div className='p-4 m-4'>
@@ -30,25 +28,19 @@ const WodHistory = ({ historic }: { historic: Ihistoric[] }) => {
         <ul>
           {historic.length === 0 && (
             <p className='italic'>
-              Ajoutez des informations à la fin de votre entrainement et
-              retrouvez votre historique ici !
+              Ajoutez des informations à la fin de votre entrainement et retrouvez votre historique
+              ici !
             </p>
           )}
           {historic.map((ele) => (
             <li key={ele.id}>
-              {ele.date} : {ele.rounds} rounds réalisés en {ele.time} minutes -
-              &laquo;{ele.comment}
+              {ele.date} : {ele.rounds} rounds réalisés en {ele.time} minutes - &laquo;{ele.comment}
               &raquo;
             </li>
           ))}
         </ul>
       )}
-      {!isLogged && (
-        <p>
-          Connectez-vous pour suivre l'évolution de vos performances sur ce Wod
-          !{" "}
-        </p>
-      )}
+      {!isLogged && <p>Connectez-vous pour suivre l'évolution de vos performances sur ce Wod ! </p>}
     </div>
   );
 };

@@ -21,6 +21,7 @@ import { actionLoadUserfromStorage } from "./store/actions/usersReducer";
 import { IUserLoad } from "./@types/connexion_menu";
 import Navigation from "./components/Navigation/Navigation";
 import Error404 from "./components/Error404/Error404";
+import RandomWod from "./components/RandomWod/RandomWod";
 
 function App() {
   const dispatch = useDispatch() as AppDispatch;
@@ -54,12 +55,9 @@ function App() {
           path='/'
           element={
             <>
-              <Banner
-                title="Le futur du fitness, dans le charme retro d'hier."
-                subtitle="Bienvenue dans le charme rétro d'hier où le passé rencontre la technologie moderne pour une expérience sportive inédite."
-              />
+              <Banner title='Wod Experience' subtitle="Le sport n'importe où, n'importe quand !" />
               <HomeCarousel />
-              <BottomBanner />
+              <RandomWod />
             </>
           }
         />

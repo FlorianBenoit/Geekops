@@ -1,3 +1,24 @@
+.homecard {
+  background-size: cover;
+  transition: 0.2s;
+}
+.homecard.homecard1 {
+  background-image: url(/var/www/html/Projet/Geekops/Front/Geekops/public/man-training-with-weight-lifting.jpg);
+  background-size: cover;
+  transition: 0.2s;
+}
+.homecard.homecard2 {
+  background-image: url(/var/www/html/Projet/Geekops/Front/Geekops/public/pair-gloves-boxing-sport.jpg);
+}
+.homecard.homecard3 {
+  background-image: url(/var/www/html/Projet/Geekops/Front/Geekops/public/powerlifting-weight.jpg);
+}
+.homecard.slide-in {
+  transform: translateY(0);
+}
+.homecard:hover {
+  transform: scale(1.1);
+}
 .container {
   box-shadow: 2px 2px 15px -5px #000000;
 }

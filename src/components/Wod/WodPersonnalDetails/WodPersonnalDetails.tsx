@@ -28,7 +28,7 @@ const WodPersonnalDetails = ({
   const isLogged = useSelector((state: RootState) => state.userReducer.isLogged);
 
   return (
-    <div className=' h-full flex flex-col p-4 bg-white border-b justify-around'>
+    <div className=' h-full flex flex-col p-4 border-b-2 border-amber-500 justify-around'>
       {!isLogged && (
         <div className='flex flex-col h-full justify-center'>
           <p>
@@ -46,11 +46,11 @@ const WodPersonnalDetails = ({
         <form action='#' className='flex flex-col' onSubmit={(event) => handleSubmit(event)}>
           <div className='mb-2'>
             <span className='font-bold'>Rounds réalisés : </span>
-            <button onClick={handleClickMinus} className='text-xl  mb-2' type='button'>
+            <button onClick={handleClickMinus} className='text-xl w-4 ' type='button'>
               -
             </button>
             <span> {rounds} </span>
-            <button onClick={handleClickPlus} className='text-xl' type='button'>
+            <button onClick={handleClickPlus} className='text-xl w-4' type='button'>
               +
             </button>
           </div>

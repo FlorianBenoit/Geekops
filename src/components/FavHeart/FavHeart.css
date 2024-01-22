@@ -1,7 +1,7 @@
 .pixel-art-button-on,
 .pixel-art-button-off {
   background-size: cover;
-  height: 30px;
+  height: 36px;
   width: 36px;
   border: none;
   position: absolute;
@@ -10,9 +10,9 @@
 }
 
 .pixel-art-button-on {
-  background-image: url("../HomeCard/assets/heart-on.png");
+  background-image: url("/var/www/html/Projet/Geekops/Front/Geekops/public/coeur2.png");
 }
 
 .pixel-art-button-off {
-  background-image: url("../HomeCard/assets/heart-off.png");
+  background-image: url("/var/www/html/Projet/Geekops/Front/Geekops/public/coeur1.png");
 }
